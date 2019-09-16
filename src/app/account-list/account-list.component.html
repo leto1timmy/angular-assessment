@@ -1,1 +1,23 @@
-<p>account-list works!</p>
+<h2>Accounts</h2>
+<ul *ngIf="accounts">
+  <li *ngFor="let account of accounts">
+    <div>
+      <div class="detail">
+        <p>{{account.name}}</p>
+      </div>
+      <div class="detail">
+        <p>{{account.number}}</p>
+      </div>
+    </div>
+    <div>
+      <a routerLink="/add-account/{{account.id}}">
+        <fa name="edit" size="1x"></fa>
+      </a>
+    </div>
+    <div>
+      <a routerLink="/add-account/{{account.id}}">
+        <fa name="trash" size="1x"></fa>
+      </a>
+    </div>
+  </li>
+</ul>
