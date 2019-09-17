@@ -20,15 +20,15 @@ export class AccountListComponent implements OnInit {
     this.accountSevice.getAccounts().subscribe(accounts => (this.accounts = accounts));
   }
 
-  addAccount(name: string): void {
-    name = name.trim();
-    if (!name) {
-      return;
-    }
-    this.accountSevice.addAccount({ name } as Account).subscribe(account => {
-      this.accounts.push(account);
-    });
-  }
+  // addAccount(name: string): void {
+  //   name = name.trim();
+  //   if (!name) {
+  //     return;
+  //   }
+  //   this.accountSevice.addAccount({ name } as Account).subscribe(account => {
+  //     this.accounts.push(account);
+  //   });
+  // }
 
   delete(account: Account): void {
     this.accounts = this.accounts.filter(h => h !== account);

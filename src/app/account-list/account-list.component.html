@@ -10,12 +10,12 @@
       </div>
     </div>
     <div>
-      <a routerLink="/add-account/{{account.id}}">
+      <a routerLink="/edit-account/{{account.id}}">
         <fa name="edit" size="1x"></fa>
       </a>
     </div>
     <div>
-      <a routerLink="/add-account/{{account.id}}">
+      <a (click)="delete(account)">
         <fa name="trash" size="1x"></fa>
       </a>
     </div>

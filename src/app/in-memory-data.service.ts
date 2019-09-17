@@ -14,6 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 14, name: 'Klient Platyna', number: '84193000058409570898587160' },
       { id: 15, name: 'Konto Twoj Biznes', number: '25124043863165548926081403' }
     ];
+    console.log(accounts);
     return { accounts };
   }
 

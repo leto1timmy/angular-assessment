@@ -1,1 +1,35 @@
-<p>add-account works!</p>
+<div *ngIf="submitted && success && !accountMessageForm.controls.number.errors" class="results">
+  <h2>Great! Account added successfully</h2>
+  <span>
+    <strong>Name:</strong>
+    {{ accountMessageForm.controls.name.value }}
+  </span>
+  <span>
+    <strong>Number:</strong>
+    {{ accountMessageForm.controls.number.value }}
+  </span>
+</div>
+
+<div *ngIf="!success">
+  <h1>Add Account</h1>
+  <form [formGroup]="accountMessageForm" (ngSubmit)="onSubmit()">
+    <label>
+      Name:
+      <input type="text" formControlName="name" required>
+      <div *ngIf="submitted && accountMessageForm.controls.name.errors" class="error">
+        <div *ngIf="accountMessageForm.controls.name.errors.required">Name is required.</div>
+      </div>
+    </label>
+
+    <label>
+      Account Number:
+      <input type="text" formControlName="number" required>
+      <div *ngIf="submitted && accountMessageForm.controls.number.errors" class="error">
+        <div *ngIf="accountMessageForm.controls.number.errors.required">A number is required</div>
+      </div>
+    </label>
+
+    <input type="submit" value="Save" class="cta">
+
+  </form>
+</div>

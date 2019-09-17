@@ -15,7 +15,10 @@ import { AddAccountComponent } from './add-account/add-account.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { CustomMaterialModule } from './material.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditAccountComponent } from './edit-account/edit-account.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,13 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AccountListComponent,
     AddAccountComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    EditAccountComponent
   ],
   imports: [
+    FormsModule,
+    CustomMaterialModule,
+    ReactiveFormsModule,
     AngularFontAwesomeModule,
     HttpClientModule,
     BrowserModule,

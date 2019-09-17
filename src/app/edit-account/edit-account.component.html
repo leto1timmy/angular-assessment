@@ -1,0 +1,19 @@
+<form [formGroup]="accountEditForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" formControlName="name" required>
+    <div *ngIf="submitted && accountEditForm.controls.name.errors" class="error">
+      <div *ngIf="accountEditForm.controls.name.errors.required">Name is required.</div>
+    </div>
+  </label>
+  <label>
+    Account Number:
+    <input type="text" formControlName="number" required>
+    <div *ngIf=" submitted && accountEditForm.controls.number.errors" class="error">
+      <div *ngIf="accountEditForm.controls.number.errors.required">A number is required</div>
+    </div>
+  </label>
+
+  <button type="submit">Update</button>
+  <button type="button" (click)="goBack()">Back</button>
+</form>
