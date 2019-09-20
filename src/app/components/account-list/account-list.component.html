@@ -1,4 +1,5 @@
 <h2>Accounts</h2>
+<h5 *ngIf="!currentUser">please, login, to manage accounts</h5>
 <ul *ngIf="accounts">
   <li *ngFor="let account of accounts">
     <div>
