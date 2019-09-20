@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../account.service';
-import { Account } from '../account';
+import { AccountService } from '../../services/account.service';
+import { Account } from '../../models/account';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-account-list',
@@ -9,8 +11,14 @@ import { Account } from '../account';
 })
 export class AccountListComponent implements OnInit {
   accounts: Account[];
+  currentUser: User;
 
-  constructor(private accountSevice: AccountService) {}
+  constructor(
+    private accountSevice: AccountService,
+    private authenticationService: AuthenticationService
+  ) {
+    this.authenticationService.currentUser.subscribe(x => (this.currentUser = x));
+  }
 
   ngOnInit() {
     this.getAccounts();
@@ -19,16 +27,6 @@ export class AccountListComponent implements OnInit {
   getAccounts(): void {
     this.accountSevice.getAccounts().subscribe(accounts => (this.accounts = accounts));
   }
-
-  // addAccount(name: string): void {
-  //   name = name.trim();
-  //   if (!name) {
-  //     return;
-  //   }
-  //   this.accountSevice.addAccount({ name } as Account).subscribe(account => {
-  //     this.accounts.push(account);
-  //   });
-  // }
 
   delete(account: Account): void {
     this.accounts = this.accounts.filter(h => h !== account);

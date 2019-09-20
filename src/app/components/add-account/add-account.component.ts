@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Account } from '../account';
-import { AccountService } from '../account.service';
+import { Account } from '../../models/account';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-add-account',
@@ -23,7 +23,7 @@ export class AddAccountComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+    console.log(this.accountMessageForm.controls.number);
     if (this.accountMessageForm.invalid) {
       return;
     }
@@ -42,7 +42,7 @@ export class AddAccountComponent implements OnInit {
 
   addAccount(): void {
     this.accountService.addAccount(this.newAccount).subscribe(ret => {
-      console.log('Account created: ', ret);
+      console.log('Account created');
     });
   }
 }
