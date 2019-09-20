@@ -21,14 +21,13 @@ export class EditAccountComponent implements OnInit {
     private accountSevice: AccountService,
     private route: ActivatedRoute,
     private location: Location
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.accountEditForm = this.formBuilder.group({
       name: ['', Validators.required],
       number: ['', Validators.required]
     });
-  }
-
-  ngOnInit() {
     this.getAccount();
   }
 

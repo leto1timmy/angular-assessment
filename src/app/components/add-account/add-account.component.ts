@@ -14,12 +14,7 @@ export class AddAccountComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder, private accountService: AccountService) {
-    this.accountMessageForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      number: ['', Validators.required]
-    });
-  }
+  constructor(private formBuilder: FormBuilder, private accountService: AccountService) {}
 
   onSubmit() {
     this.submitted = true;
@@ -38,7 +33,12 @@ export class AddAccountComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.accountMessageForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      number: ['', Validators.required]
+    });
+  }
 
   addAccount(): void {
     this.accountService.addAccount(this.newAccount).subscribe(ret => {
