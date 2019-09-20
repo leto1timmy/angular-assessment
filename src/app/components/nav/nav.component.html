@@ -4,7 +4,7 @@
     <nav>
       <ul>
         <li><a routerLink="/account-list">Lista Rachunków</a></li>
-        <li><a routerLink="/add-account">Dodaj Rachunek</a></li>
+        <li *ngIf="currentUser"><a routerLink="/add-account">Dodaj Rachunek</a></li>
         <li *ngIf="!currentUser"><a routerLink="/login">Zaloguj</a></li>
         <li *ngIf="currentUser"><a routerLink="/" (click)="logout()">Wyloguj</a></li>
       </ul>
